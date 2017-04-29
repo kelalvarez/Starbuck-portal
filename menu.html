@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Starbucks- The Best Coffee and Espresso Drinks</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script data-require="angular.js@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+        .image {
+            line-height: 2;
+            display: block;
+            word-wrap: break-word;
+        }
+        .fa{
+            padding:1%;
+        }
+        .label {
+            font-family: Knockout\ 51 A, Knockout\ 51 B, Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-weight: 500;
+            line-height: 1.3;
+            color: black;
+            font-size: 14px;
+            white-space: normal;
+            display: block;
+            word-wrap: break-word;
+        }
+
+        ul, a, a:link {
+            color: #2B8815;
+            font-weight: bold;
+        }
+        ul {
+            font-size: 12px;
+        }
+        a:hover {
+            background-color: #2B8815;
+            color: white;
+            cursor: pointer;
+        }
+        .icon-plus{
+            content:''
+        }
+
+        .show {
+            display: block !important;
+        }
+        .hide {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src = "./images/logo.png" class="img-circle" width="50" height="50" alt = "logo"/>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Store</a></li>
+                <li><a href="#">Cart</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" style="padding: 1%">
+
+    <div class="col-sm-12">
+        <h2><strong>EXPLORE OUR MENU</strong></h2>
+    </div>
+    <div class="col-sm-12" style="margin-top: 10px">
+        <div class="col-sm-3" style="background-color: #D8D8D8; padding-top: 20px; padding-bottom: 20px;">
+            <span style="font-size: 17px">Refine your Search</span>
+            <br>
+            <br>
+            <a id="showAll">All</a><br>
+            <span id="signEspresso" class="glyphicon glyphicon-plus" style="font-size:11px"></span><a id="showEspresso">Espresso Beverages</a><br>
+            <ul id="espressoList" class="hide">
+                <li>Caffe Americano</li>
+                <li>Caffe Latte</li>
+                <li>Caffe Mocha</li>
+                <li>Cappuccino</li>
+                <li>Caramel Macchiato</li>
+                <li>Cinnamon Dolce Latte</li>
+                <li>Espresso</li>
+                <li>Espresso Con Panna</li>
+                <li>Espresso Macchiato</li>
+                <li>Flavored Latte</li>
+                <li>Iced Caffe Americano</li>
+                <li>Iced Caffe Latte</li>
+                <li>Iced Caffe Mocha</li>
+                <li>Iced Cinnamon Dolce Latte</li>
+                <li>Iced Flavored Latte</li>
+                <li>Iced Peppermint Mocha</li>
+                <li>Iced Peppermint White Chocolate Mocha</li>
+                <li>Iced Salted Caramel Mocha</li>
+                <li>Iced Skinny Flavored Latte</li>
+                <li>Iced White Chocolate Mocha</li>
+                <li>Peppermint Mocha</li>
+                <li>Peppermint White Chocolate Mocha</li>
+                <li>Pumpkin Spice Creme</li>
+                <li>Pumpkin Spice Latte</li>
+                <li>Salted Caramel Mocha</li>
+                <li>Skinny Caramel Macchiato</li>
+                <li>Skinny Cinnamon Dolce Latte</li>
+                <li>Skinny Flavored Latte</li>
+                <li>White Chocolate Mocha</li>
+            </ul>
+            <span id="signBrewed" class="glyphicon glyphicon-plus" style="font-size:11px"></span><a id="showBrewed" >Brewed Coffee</a><br>
+            <ul id="brewedList" class="hide">
+                <li>Caffe Misto</li>
+                <li>Clover Brewed Coffee</li>
+                <li>Coffee Traveler</li>
+                <li>Decaf Pike Place Roast</li>
+                <li>Iced Coffee</li>
+                <li>Iced Coffee with Milk</li>
+                <li>Pike Place Roast</li>
+            </ul>
+
+        </div>
+
+        <div id="all" class="col-sm-9">
+            <div class="col-sm-12 text-center" style="line-height: 2.6">
+                <span style="font-size: 20px; font-weight: 500">Drinks</span>
+            </div>
+            <br>
+            <!-- Need fix , implement angular on this-->
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_americano.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Americano</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_latte.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/cappuccino.jpg" height="150" width="150"/>
+                    <span class="label">Cappuccino</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/caramel_macchiato.jpg" height="150" width="150"/>
+                    <span class="label">Caramel Macchiato</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_latte.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/espresso.jpg" height="150" width="150"/>
+                    <span class="label">Espresso</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/espresso_con_panna.jpg" height="150" width="150"/>
+                    <span class="label">Espresso con Panna</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/espresso_macchiato.jpg" height="150" width="150"/>
+                    <span class="label">Espresso Macchiato</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/flavored_latte.jpg" height="150" width="150"/>
+                    <span class="label">Flavored Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_caffee_americano.jpg" height="150" width="150"/>
+                    <span class="label">Iced Caffee Americano</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_caffee_latte.jpg" height="150" width="150"/>
+                    <span class="label">Iced Caffee Latte</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_caffee_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced Caffee Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_caramel_macchiato.jpg" height="150" width="150"/>
+                    <span class="label">Iced Caramel Macchiato</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_flavored_latte.jpg" height="150" width="150"/>
+                    <span class="label">Iced Flavored Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_peppermint_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced Peppermint Mocha</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_peppermint_white_chocolate_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced Peppermint White Chocolate Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_salted_caramel_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced Salted Caramel Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_skinny_flavored_latte.jpg" height="150" width="150"/>
+                    <span class="label">Iced Skinny Flavored Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_white_chocolate_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced White Chocolate Mocha</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/peppermint_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Peppermint Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/salted_caramel_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Salted Caramel Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/starbucks_iced_cinnamon_dolce_latte.jpg" height="150" width="150"/>
+                    <span class="label">Iced Cinnamon Dolce Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/pumpkin_spice_latte.png" height="150" width="150"/>
+                    <span class="label">Pumpkin Spice Latte</span>
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/pupmkin_spice_creme.png" height="150" width="150"/>
+                    <span class="label">Pumpkin Spice Creme</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_misto.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Misto</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/coffee_traveler.jpg" height="150" width="150"/>
+                    <span class="label">Coffee Traveler</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/decaf_pike_place_roast.jpg" height="150" width="150"/>
+                    <span class="label">Decaf Pike Place Roast</span>
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_coffee_brewed_coffee.jpg" height="150" width="150"/>
+                    <span class="label">Iced Coffee</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_coffee_with_milk_brewed_coffee.jpg" height="150" width="150"/>
+                    <span class="label">Iced Coffee with Milk</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/pike_place_roast.jpg" height="150" width="150"/>
+                    <span class="label">Pike Place Roast</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/clover_brewed_coffee.jpg" height="150" width="150"/>
+                    <span class="label">Clover Brewed Coffee</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="espresso-beverages" class="col-sm-9 hide">
+
+            <div class="col-sm-12 text-center" style="line-height: 1; padding-bottom: 20px">
+                <span style="font-size: 20px; font-weight: 500">ESPRESSO BEVERAGES</span>
+                <br>
+                <img src="images/products/espresso-logo.jpg" height="400" width="600">
+                <br>
+            </div>
+            <br>
+            <!-- Need fix , implement angular on this-->
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_americano.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Americano</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_latte.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/cappuccino.jpg" height="150" width="150"/>
+                    <span class="label">Cappuccino</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/caramel_macchiato.jpg" height="150" width="150"/>
+                    <span class="label">Caramel Macchiato</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_latte.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/espresso.jpg" height="150" width="150"/>
+                    <span class="label">Espresso</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/espresso_con_panna.jpg" height="150" width="150"/>
+                    <span class="label">Espresso con Panna</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/espresso_macchiato.jpg" height="150" width="150"/>
+                    <span class="label">Espresso Macchiato</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/flavored_latte.jpg" height="150" width="150"/>
+                    <span class="label">Flavored Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_caffee_americano.jpg" height="150" width="150"/>
+                    <span class="label">Iced Caffee Americano</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_caffee_latte.jpg" height="150" width="150"/>
+                    <span class="label">Iced Caffee Latte</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_caffee_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced Caffee Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_caramel_macchiato.jpg" height="150" width="150"/>
+                    <span class="label">Iced Caramel Macchiato</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_flavored_latte.jpg" height="150" width="150"/>
+                    <span class="label">Iced Flavored Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_peppermint_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced Peppermint Mocha</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_peppermint_white_chocolate_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced Peppermint White Chocolate Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_salted_caramel_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced Salted Caramel Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_skinny_flavored_latte.jpg" height="150" width="150"/>
+                    <span class="label">Iced Skinny Flavored Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_white_chocolate_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Iced White Chocolate Mocha</span>
+                </div>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/peppermint_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Peppermint Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/salted_caramel_mocha.jpg" height="150" width="150"/>
+                    <span class="label">Salted Caramel Mocha</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/starbucks_iced_cinnamon_dolce_latte.jpg" height="150" width="150"/>
+                    <span class="label">Iced Cinnamon Dolce Latte</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/pumpkin_spice_latte.png" height="150" width="150"/>
+                    <span class="label">Pumpkin Spice Latte</span>
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/pupmkin_spice_creme.png" height="150" width="150"/>
+                    <span class="label">Pumpkin Spice Creme</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="brewed-coffee" class="col-sm-9 hide">
+
+            <div class="col-sm-12 text-center" style="line-height: 1; padding-bottom: 20px">
+                <span style="font-size: 20px; font-weight: 500">BREWED COFFEE</span>
+                <br>
+                <img src="images/products/brewed-logo.jpg" height="417" width="742"/>
+                <br>
+            </div>
+            <br>
+            <!-- Need fix , implement angular on this-->
+
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_coffee_brewed_coffee.jpg" height="150" width="150"/>
+                    <span class="label">Iced Coffee</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/iced_coffee_with_milk_brewed_coffee.jpg" height="150" width="150"/>
+                    <span class="label">Iced Coffee with Milk</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/pike_place_roast.jpg" height="150" width="150"/>
+                    <span class="label">Pike Place Roast</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/clover_brewed_coffee.jpg" height="150" width="150"/>
+                    <span class="label">Clover Brewed Coffee</span>
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-bottom:20px">
+                <div class="image col-sm-3">
+                    <img src="images/products/caffe_misto.jpg" height="150" width="150"/>
+                    <span class="label">Caffee Misto</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/coffee_traveler.jpg" height="150" width="150"/>
+                    <span class="label">Coffee Traveler</span>
+                </div>
+
+                <div class="image col-sm-3">
+                    <img src="images/products/decaf_pike_place_roast.jpg" height="150" width="150"/>
+                    <span class="label">Decaf Pike Place Roast</span>
+                </div>
+            </div>
+        </div>
+
+
+</div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        $('a#showAll').on('click',function () {
+            document.getElementById('brewed-coffee').classList.remove('show');
+            document.getElementById('brewed-coffee').classList.add('hide');
+
+            document.getElementById('all').classList.remove('hide');
+            document.getElementById('all').classList.add('show');
+
+            document.getElementById('espresso-beverages').classList.remove('show');
+            document.getElementById('espresso-beverages').classList.add('hide');
+        });
+
+        $('a#showEspresso').on('click',function (){
+
+            document.getElementById('brewed-coffee').classList.remove('show');
+            document.getElementById('brewed-coffee').classList.add('hide');
+
+
+            document.getElementById('all').classList.remove('show');
+            document.getElementById('all').classList.add('hide');
+
+            document.getElementById('espresso-beverages').classList.remove('hide');
+            document.getElementById('espresso-beverages').classList.add('show');
+
+            if (document.getElementById('espressoList').classList.contains('show')) {
+                document.getElementById('signEspresso').classList.remove('glyphicon-minus');
+                document.getElementById('signEspresso').classList.add('glyphicon-plus');
+                document.getElementById('espressoList').classList.remove('show');
+                document.getElementById('espressoList').classList.add('hide');
+            } else {
+
+                document.getElementById('signEspresso').classList.remove('glyphicon-plus');
+                document.getElementById('signEspresso').classList.add('glyphicon-minus');
+                document.getElementById('espressoList').classList.remove('hide');
+                document.getElementById('espressoList').classList.add('show');
+            }
+        });
+        $('a#showBrewed').on('click',function () {
+
+            document.getElementById('brewed-coffee').classList.remove('hide');
+            document.getElementById('brewed-coffee').classList.add('show');
+
+            document.getElementById('all').classList.remove('show');
+            document.getElementById('all').classList.add('hide');
+
+            document.getElementById('espresso-beverages').classList.remove('show');
+            document.getElementById('espresso-beverages').classList.add('hide');
+
+            if (document.getElementById('brewedList').classList.contains('show')) {
+                document.getElementById('signBrewed').classList.remove('glyphicon-minus');
+                document.getElementById('signBrewed').classList.add('glyphicon-plus');
+
+                document.getElementById('brewedList').classList.remove('show');
+                document.getElementById('brewedList').classList.add('hide');
+            } else {
+
+                document.getElementById('signBrewed').classList.remove('glyphicon-plus');
+                document.getElementById('signBrewed').classList.add('glyphicon-minus');
+                document.getElementById('brewedList').classList.remove('hide');
+                document.getElementById('brewedList').classList.add('show');
+            }
+        });
+    });
+</script>
+
+<footer class="container-fluid text-center">
+    <i class="fa fa-facebook" style="font-size:36px"></i>
+    <i class="fa fa-google-plus" style="font-size:36px"></i>
+    <i class="fa fa-twitter" style="font-size:36px"></i>
+    <i class="fa fa-pinterest" style="font-size:36px"></i>
+    <i class="fa fa-instagram" style="font-size:36px"></i>
+</footer>
+
+
+</body>
+</html>
+
