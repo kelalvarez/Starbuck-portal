@@ -2,9 +2,12 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class Order extends Model
+class Order extends Eloquent
 {
-    //
+    protected $table = 'orders';
+
+    protected $id = ['id'];
+    protected $location = ['location'];
 }

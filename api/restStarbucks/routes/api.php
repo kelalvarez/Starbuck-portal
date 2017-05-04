@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('order/{id}', function($id)
+{
+    $orders = array(
+        1 => "Order 1",
+        2 => "Order 2",
+        3 => "Order3"
+    );
+    return array($id => $orders[$id]);
+});
