@@ -13,7 +13,7 @@ class CreateOrdersCollection extends Migration
     public function up()
     {
         Schema::create('order', function ($collection) {
-            $collection->index('id');
+            $collection->increments('id');
             $collection->string('location');
         });
     }

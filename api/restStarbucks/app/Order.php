@@ -8,6 +8,12 @@ class Order extends Eloquent
 {
     protected $table = 'orders';
 
-    protected $id = ['id'];
     protected $location = ['location'];
+
+
+
+    public function items()
+    {
+        return $this->hasMany('Item');
+    }
 }

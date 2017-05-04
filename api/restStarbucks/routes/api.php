@@ -18,12 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('order/{id}', function($id)
-{
-    $orders = array(
-        1 => "Order 1",
-        2 => "Order 2",
-        3 => "Order3"
-    );
-    return array($id => $orders[$id]);
-});
+Route::resource('order', 'OrderController');
+
+//Route::post('order', function(Request $request)
+//{
+//    $orders = array(
+//        1 => "Order 1",
+//        2 => "Order 2",
+//        3 => "Order3"
+//    );
+//    return array($id => $orders[$id]);
+//});

@@ -56,7 +56,7 @@ class OrderController extends Controller
                 'location' => $request->input('location'),
             ] );
 
-        $books = DB::collection('order')->get();
+        $order = DB::collection('order')->get();
 
         return view('bookindex', compact('order'));
     }
@@ -64,7 +64,7 @@ class OrderController extends Controller
     public function destroy($id)
     {
         // Delete the document of given id and return index view
-        DB::collection('books')->where('_id', $id)->delete();
+        DB::collection('order')->where('_id', $id)->delete();
         $order = DB::collection('order')->get();
         return view('bookindex', compact('order'));
     }
