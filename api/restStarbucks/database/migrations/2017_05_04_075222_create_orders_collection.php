@@ -25,6 +25,6 @@ class CreateOrdersCollection extends Migration
      */
     public function down()
     {
-        Schema::drop('order');
+        //Schema::drop('order');
     }
 }
